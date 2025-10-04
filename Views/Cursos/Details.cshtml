@@ -1,10 +1,25 @@
 @model EXAMEN_PARCIAL.Models.Curso
 
+
 @{
     ViewData["Title"] = "Detalles del Curso";
 }
 
 <h1>Detalles del Curso</h1>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
 
 <div>
     <h4>@Model.Nombre</h4>
@@ -46,7 +61,7 @@
     <a asp-action="Index" class="btn btn-secondary">Volver al Catálogo</a>
     @if (User.Identity.IsAuthenticated)
     {
-        <a asp-controller="Matriculas" asp-action="Create" asp-route-cursoId="@Model.Id" class="btn btn-primary">Inscribirse</a>
+        <a href="@Url.Action("Create", "Matriculas", new { cursoId = Model.Id })" class="btn btn-success">Inscribirse</a>
     }
     else
     {

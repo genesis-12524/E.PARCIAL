@@ -4,8 +4,8 @@ using EXAMEN_PARCIAL.Data;
 using EXAMEN_PARCIAL.Models;
 using System.Diagnostics;
 
-namespace PortalAcademico.Controllers
-{
+namespace EXAMEN_PARCIAL.Controllers;
+
     public class CursosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -74,4 +74,3 @@ namespace PortalAcademico.Controllers
             return View(curso);
         }
     }
-}
