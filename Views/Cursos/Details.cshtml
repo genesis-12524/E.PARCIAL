@@ -1,0 +1,55 @@
+@model EXAMEN_PARCIAL.Models.Curso
+
+@{
+    ViewData["Title"] = "Detalles del Curso";
+}
+
+<h1>Detalles del Curso</h1>
+
+<div>
+    <h4>@Model.Nombre</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Creditos)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Creditos)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CupoMaximo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CupoMaximo)
+        </dd>
+        <dt class="col-sm-2">
+            Horario
+        </dt>
+        <dd class="col-sm-10">
+            @Model.HorarioInicio.ToString(@"hh\:mm") - @Model.HorarioFin.ToString(@"hh\:mm")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Volver al Catálogo</a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-controller="Matriculas" asp-action="Create" asp-route-cursoId="@Model.Id" class="btn btn-primary">Inscribirse</a>
+    }
+    else
+    {
+        <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary">Iniciar Sesión para Inscribirse</a>
+    }
+</div>
