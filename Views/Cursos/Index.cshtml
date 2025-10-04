@@ -1,0 +1,67 @@
+@model IEnumerable<EXAMEN_PARCIAL.Models.Curso>
+
+@{
+    ViewData["Title"] = "Catálogo de Cursos";
+}
+
+<h1>Catálogo de Cursos</h1>
+
+<form method="get">
+    <div class="row">
+        <div class="col-md-3">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="@Context.Request.Query["nombre"]" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label for="creditosMin">Créditos Mín:</label>
+            <input type="number" id="creditosMin" name="creditosMin" value="@Context.Request.Query["creditosMin"]" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label for="creditosMax">Créditos Máx:</label>
+            <input type="number" id="creditosMax" name="creditosMax" value="@Context.Request.Query["creditosMax"]" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <label for="horario">Horario:</label>
+            <select id="horario" name="horario" class="form-control">
+                <option value="">Todos</option>
+                <option value="mañana" selected='@(Context.Request.Query["horario"] == "mañana")'>Mañana</option>
+                <option value="tarde" selected='@(Context.Request.Query["horario"] == "tarde")'>Tarde</option>
+                <option value="noche" selected='@(Context.Request.Query["horario"] == "noche")'>Noche</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+            <a asp-action="Index" class="btn btn-secondary">Limpiar</a>
+        </div>
+    </div>
+</form>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Créditos</th>
+            <th>Cupo Máximo</th>
+            <th>Horario</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Codigo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Creditos)</td>
+                <td>@Html.DisplayFor(modelItem => item.CupoMaximo)</td>
+                <td>@item.HorarioInicio.ToString(@"hh\:mm") - @item.HorarioFin.ToString(@"hh\:mm")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalles</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
