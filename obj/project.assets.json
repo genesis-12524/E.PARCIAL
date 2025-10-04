@@ -3570,11 +3570,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\EXAMEN_PARCIAL\\EXAMEN_PARCIAL.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\EParcial\\E.PARCIAL\\EXAMEN_PARCIAL.csproj",
       "projectName": "EXAMEN_PARCIAL",
-      "projectPath": "C:\\Users\\User\\Desktop\\EXAMEN_PARCIAL\\EXAMEN_PARCIAL.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\EParcial\\E.PARCIAL\\EXAMEN_PARCIAL.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\EXAMEN_PARCIAL\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\EParcial\\E.PARCIAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
